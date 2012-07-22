@@ -11,7 +11,7 @@ get_serverlist ($serverlist);
 <html lang="nl">
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
-	<title>Unreal manager</title>
+	<title>GameserverDaemon</title>
 
 	<link href="jquery-ui.css" rel="stylesheet" type="text/css"/>
 	<script src="jquery.min.js"></script>

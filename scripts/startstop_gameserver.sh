@@ -1,26 +1,23 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
 # Command line arguments: <ID> <working dir> <game server executable>
 # E.g: <script-name.sh> ut2004 ut2004_dedicated ucc-bin
 
-### USER CONFIG
-sleep_time=3
-web_interface_root=~/gameserver_manager/public_html
+# Include config
+source `dirname $0`/config.sh
 
-file_stop=~/${web_interface_root}/game_management/${1}-cmd_stop
-file_start=~/${web_interface_root}/game_management/${1}-cmd_start
-file_restart=~/${web_interface_root}/game_management/${1}-cmd_restart
-file_binary_arguments=~/${web_interface_root}/game_management/${1}-server_arguments
-file_status=~/${web_interface_root}/game_management/${1}-server_is_alive
+file_stop=${web_interface_root}/game_management/${1}-cmd_stop
+file_start=${web_interface_root}/game_management/${1}-cmd_start
+file_restart=${web_interface_root}/game_management/${1}-cmd_restart
+file_binary_arguments=${web_interface_root}/game_management/${1}-server_arguments
+file_status=${web_interface_root}/game_management/${1}-server_is_alive
 
-daemonize_executable=~/daemonize/daemonize
 daemonize_game_workingdir=~/${2}
 daemonize_game_binary=${daemonize_game_workingdir}/${3}
-daemonize_game_stderr=~/${web_interface_root}/game_management/${1}-server.log
-daemonize_game_stdout=~/${web_interface_root}/game_management/${1}-server.log
+daemonize_game_stderr=${web_interface_root}/game_management/${1}-server.log
+daemonize_game_stdout=${web_interface_root}/game_management/${1}-server.log
 daemonize_game_pid=${daemonize_game_workingdir}/server.pid
 daemonize_game_lock=${daemonize_game_workingdir}/server.lock
-### END USER CONFIG
 
 cmd_stop='kill `cat ${daemonize_game_pid}`'
 cmd_start='${daemonize_executable} -c ${daemonize_game_workingdir} -e ${daemonize_game_stderr} -o ${daemonize_game_stdout} -p ${daemonize_game_pid} -l ${daemonize_game_lock} -v ${daemonize_game_binary} `cat ${file_binary_arguments}`'

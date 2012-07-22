@@ -1,9 +1,7 @@
 #!/usr/bin/env bash
 
-### USER CONFIG
-startstop_gameserver_script=./startstop_gameserver.sh
-servers_list=~/gameserver_manager/public_html/servers.list
-### END USER CONFIG
+# Include config
+source `dirname $0`/config.sh
 
 counter=0
 
