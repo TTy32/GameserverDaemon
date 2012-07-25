@@ -1,8 +1,8 @@
 #!/bin/bash
 
 ### USER CONFIG
-redirect_dir=~/public_html/redirect
-dirs=(~/ut2004/ballistic_freon_1 ~/ut2004/fbdg_friends_1)
+redirect_dir=~/GameserverDaemon/public_html/redirect
+dirs=(~/ut2004/ballistic_freon_1 ~/ut2004/fbdgfriends_general)
 ### END USER CONFIG
 
 echo starting..
@@ -16,4 +16,3 @@ do
 	find $i -iname '*.u'   -type f -exec ln --target-directory=${redirect_dir} -s {} basename {} \; 1>/dev/null 2>&1
 	find $i -iname '*.utx' -type f -exec ln --target-directory=${redirect_dir} -s {} basename {} \; 1>/dev/null 2>&1
 done
-
