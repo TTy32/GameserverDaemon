@@ -15,4 +15,9 @@ do
 	find $i -iname '*.uax' -type f -exec ln --target-directory=${redirect_dir} -s {} basename {} \; 1>/dev/null 2>&1
 	find $i -iname '*.u'   -type f -exec ln --target-directory=${redirect_dir} -s {} basename {} \; 1>/dev/null 2>&1
 	find $i -iname '*.utx' -type f -exec ln --target-directory=${redirect_dir} -s {} basename {} \; 1>/dev/null 2>&1
+	find $i -iname '*.usx' -type f -exec ln --target-directory=${redirect_dir} -s {} basename {} \; 1>/dev/null 2>&1
 done
+
+
+cd ${redirect_dir}
+rename 'y/A-Z/a-z/' * 1>/dev/null 2>&1
