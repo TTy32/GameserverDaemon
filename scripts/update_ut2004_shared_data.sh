@@ -2,7 +2,7 @@
 
 ### USER CONFIG
 ut2004_shared_data=~/ut2004/ut2004_shared_data
-dirs=(~/ut2004/ballistic_freon_1 ~/ut2004/fbdg_friends_1)
+dirs=(~/ut2004/ballistic_freon_1 ~/ut2004/fbdgfriends_general)
 ### END USER CONFIG
 
 echo starting..
